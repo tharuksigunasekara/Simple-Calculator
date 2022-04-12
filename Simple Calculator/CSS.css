@@ -1,0 +1,211 @@
+body{
+	font-family: 'Open Sans',sans-serif;
+	background-color: #000000;
+}
+#container{
+	
+	height: 100%;
+	background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('background2.gif');
+	background-size: cover;
+	/* margin: 20px auto;	 */
+}
+#calculator{
+	width: 320px;
+	height: 520px;
+	background-color: #eaedef;
+	margin: 0 auto;
+	top: 12%;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#result{
+	height: 120px;
+	box-shadow: 4px 3px 8px 1px #969696;
+  	-webkit-box-shadow: 7px 4px 12px -3px #000000;
+}
+#history{
+	text-align: right;
+	height: 20px;
+	margin: 0 20px;
+	padding-top: 20px;
+	font-size: 15px;
+	color: #919191;
+}
+#output{
+	text-align: right;
+	height: 60px;
+	margin: 10px 20px;
+	font-size: 30px;
+}
+#keyboard{
+	height: 400px;
+	box-shadow: 4px 3px 8px 1px #969696;
+  	-webkit-box-shadow: 9px 18px 9px -3px #000000;
+}
+.operator, .empty{
+	width: 50px;
+	height: 50px;
+	margin: 15px;
+	float: left;
+	border-radius: 50%;
+	border-width: 0;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+
+/*btn_background*/
+.operator {
+  color: #e60d0d;
+  border: 4px solid #14258d;
+  box-shadow:0px 0px 0px 1px #000 inset;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.operator:hover {
+  border: 4px solid #666;
+  background-color: #FFF;
+  box-shadow:0px 0px 0px 4px #EEE inset;
+}
+
+/*btn_text*/
+.operator span {
+  transition: all 0.2s ease-out;
+  z-index: 2;
+}
+.operator:hover span{
+  letter-spacing: 0.13em;
+  color: #333;
+}
+
+/*highlight*/
+.operator:after {
+  background: #FFF;
+  border: 0px solid #000;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: .8;
+  position: absolute;
+  top: -50px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+  width: 50px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
+  z-index: 1;
+}
+.operator:hover:after {
+  background: #FFF;
+  border: 20px solid #000;
+  opacity: 0;
+  left: 120%;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+
+
+
+
+.number, .empty{
+	background-color: #eaedef;
+}
+.number, .operator{
+	cursor: pointer;
+}
+.operator:active, .number:active{
+	font-size: 13px;
+}
+.operator:focus, .number:focus, .empty:focus{
+	outline: 0;
+}
+button:nth-child(3){
+	font-size: 20px;
+	background-color: #6fc5ff;
+}
+button:nth-child(4){
+	font-size: 20px;
+	background-color: #20b2aa;
+}
+button:nth-child(8){
+	font-size: 20px;
+	background-color: #ffa500;
+}
+button:nth-child(12){
+	font-size: 20px;
+	background-color: #f08080;
+}
+button:nth-child(16){
+	font-size: 20px;
+	background-color: #7d93e0;
+}
+button:nth-child(20){
+	font-size: 20px;
+	background-color: #9477af;
+}
+
+.number {
+	width: 50px;
+	height: 50px;
+	margin: 15px;
+	float: left;
+	border-radius: 50%;
+	border-width: 0;
+	font-weight: bold;
+	font-size: 15px;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 35px;
+}
+
+.number:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.number:active {
+    color: #000
+}
+
+.number:active:after {
+    background: transparent;
+}
+
+.number:hover:before {
+    opacity: 1;
+}
+
+.number:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #323941;
+    left: 0;
+    top: 0;
+    border-radius: 21px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
